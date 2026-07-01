@@ -5,7 +5,7 @@ import SwiftData
 struct MorseToolkit: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
         .modelContainer(for: MorseEntry.self)
     }
