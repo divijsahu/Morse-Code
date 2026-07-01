@@ -89,7 +89,8 @@ fastlane/test_output
 # Folders to ignore entirely (if present)
 Documentation/
 Screenshots/
+Morse Code - Toolkit Pro/Docs/Dev/
 
-# My Customisations
-Docs/
-docs/
+# My personal files
+Docs/dev/
+docs/dev/

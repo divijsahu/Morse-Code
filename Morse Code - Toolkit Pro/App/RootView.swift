@@ -1,7 +1,7 @@
 import SwiftUI
 import SwiftData
 
-struct ContentView: View {
+struct RootView: View {
     var body: some View {
         TabView {
             ConverterView()
@@ -33,6 +33,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    RootView()
         .environment(\.modelContext, try! ModelContainer(for: MorseEntry.self, configurations: .init(isStoredInMemoryOnly: true)).mainContext)
 }
