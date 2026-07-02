@@ -6,7 +6,7 @@ struct VisualizerView: View {
             ContentUnavailableView(
                 "Telegraph Key",
                 systemImage: "hand.tap",
-                description: Text("Tap to send dots and dashes. LED visualizer coming in Sprint 3.5.")
+                description: Text("Tap to send dots and dashes. LED visualizer coming soon")
             )
             .navigationTitle("Visualizer")
         }

@@ -6,7 +6,7 @@ struct PracticeView: View {
             ContentUnavailableView(
                 "Practice",
                 systemImage: "graduationcap",
-                description: Text("Learn, quiz, and daily challenges coming in Sprint 5.")
+                description: Text("Learn, quiz, and daily challenges coming soon.")
             )
             .navigationTitle("Practice")
         }
