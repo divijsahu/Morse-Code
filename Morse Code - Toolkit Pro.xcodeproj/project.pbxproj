@@ -6,8 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		CAFA7E562FF62A54009F5629 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAFA7D7A2FF5A43E009F5629 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CAFA7D812FF5A43E009F5629;
+			remoteInfo = "Morse Code - Toolkit Pro";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		CAFA7D822FF5A43E009F5629 /* Morse Code - Toolkit Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Morse Code - Toolkit Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAFA7E522FF62A54009F5629 /* Morse Code Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Morse Code Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -16,10 +27,22 @@
 			path = "Morse Code - Toolkit Pro";
 			sourceTree = "<group>";
 		};
+		CAFA7E532FF62A54009F5629 /* Morse Code Tests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Morse Code Tests";
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CAFA7D7F2FF5A43E009F5629 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAFA7E4F2FF62A54009F5629 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				CAFA7D842FF5A43E009F5629 /* Morse Code - Toolkit Pro */,
+				CAFA7E532FF62A54009F5629 /* Morse Code Tests */,
 				CAFA7D832FF5A43E009F5629 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				CAFA7D822FF5A43E009F5629 /* Morse Code - Toolkit Pro.app */,
+				CAFA7E522FF62A54009F5629 /* Morse Code Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +95,29 @@
 			productReference = CAFA7D822FF5A43E009F5629 /* Morse Code - Toolkit Pro.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CAFA7E512FF62A54009F5629 /* Morse Code Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CAFA7E582FF62A54009F5629 /* Build configuration list for PBXNativeTarget "Morse Code Tests" */;
+			buildPhases = (
+				CAFA7E4E2FF62A54009F5629 /* Sources */,
+				CAFA7E4F2FF62A54009F5629 /* Frameworks */,
+				CAFA7E502FF62A54009F5629 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CAFA7E572FF62A54009F5629 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				CAFA7E532FF62A54009F5629 /* Morse Code Tests */,
+			);
+			name = "Morse Code Tests";
+			packageProductDependencies = (
+			);
+			productName = "Morse Code Tests";
+			productReference = CAFA7E522FF62A54009F5629 /* Morse Code Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -82,6 +130,10 @@
 				TargetAttributes = {
 					CAFA7D812FF5A43E009F5629 = {
 						CreatedOnToolsVersion = 26.5;
+					};
+					CAFA7E512FF62A54009F5629 = {
+						CreatedOnToolsVersion = 26.5;
+						TestTargetID = CAFA7D812FF5A43E009F5629;
 					};
 				};
 			};
@@ -100,12 +152,20 @@
 			projectRoot = "";
 			targets = (
 				CAFA7D812FF5A43E009F5629 /* Morse Code - Toolkit Pro */,
+				CAFA7E512FF62A54009F5629 /* Morse Code Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CAFA7D802FF5A43E009F5629 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAFA7E502FF62A54009F5629 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +182,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CAFA7E4E2FF62A54009F5629 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CAFA7E572FF62A54009F5629 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CAFA7D812FF5A43E009F5629 /* Morse Code - Toolkit Pro */;
+			targetProxy = CAFA7E562FF62A54009F5629 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		CAFA7D8B2FF5A43F009F5629 /* Debug */ = {
@@ -310,6 +385,48 @@
 			};
 			name = Release;
 		};
+		CAFA7E592FF62A54009F5629 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 98LA53GH98;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clubsyncindia.Morse-Code-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Morse Code - Toolkit Pro.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Morse Code - Toolkit Pro";
+			};
+			name = Debug;
+		};
+		CAFA7E5A2FF62A54009F5629 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 98LA53GH98;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clubsyncindia.Morse-Code-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Morse Code - Toolkit Pro.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Morse Code - Toolkit Pro";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -327,6 +444,15 @@
 			buildConfigurations = (
 				CAFA7D8E2FF5A43F009F5629 /* Debug */,
 				CAFA7D8F2FF5A43F009F5629 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CAFA7E582FF62A54009F5629 /* Build configuration list for PBXNativeTarget "Morse Code Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAFA7E592FF62A54009F5629 /* Debug */,
+				CAFA7E5A2FF62A54009F5629 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
