@@ -18,16 +18,11 @@ struct RootView: View {
                 .tabItem {
                     Label("Visualizer", systemImage: "hand.tap")
                 }
-    
-            HistoryView()
-                .tabItem {
-                    Label("History", systemImage: "clock")
-                }
 
-            // PracticeView()
-            //     .tabItem {
-            //         Label("Practice", systemImage: "graduationcap")
-            //     }
+            PracticeView()
+                .tabItem {
+                    Label("Practice", systemImage: "graduationcap")
+                }
 
             SettingsView()
                 .tabItem {

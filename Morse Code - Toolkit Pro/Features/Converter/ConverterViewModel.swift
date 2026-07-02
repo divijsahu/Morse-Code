@@ -4,16 +4,12 @@ import SwiftData
 enum ConversionMode {
     case textToMorse, morseToText
 
-    var toggled: ConversionMode {
-        self == .textToMorse ? .morseToText : .textToMorse
-    }
-
     var label: String {
         self == .textToMorse ? "Text → Morse" : "Morse → Text"
     }
 
     var inputPlaceholder: String {
-        self == .textToMorse ? "Type text…" : "Type morse (e.g. ... --- ...)"
+        self == .textToMorse ? " Type in English here..." : " Type in Morse (e.g. ... --- ...)"
     }
 }
 
@@ -34,10 +30,11 @@ final class ConverterViewModel {
             : decoder.decode(inputText)
     }
 
-    func toggleMode() {
+    func toggleMode(to newMode: ConversionMode) {
+        guard newMode != mode else { return }
         inputText = ""
         lastSaved = ""
-        mode = mode.toggled
+        mode = newMode
     }
 
     func clear() {

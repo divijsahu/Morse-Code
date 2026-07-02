@@ -9,13 +9,18 @@ struct ConverterView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                modeToggle
                 inputSection
                 Divider()
                 outputSection
             }
+            .onTapGesture {
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            }
             .navigationTitle("Converter")
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.large)
+            .safeAreaInset(edge: .top, spacing: 0) {
+                scopeBar
+            }
             .onChange(of: viewModel.outputText) {
                 viewModel.saveToHistoryIfNeeded(context: modelContext)
             }
@@ -24,28 +29,38 @@ struct ConverterView: View {
 
     // MARK: - Subviews
 
-    private var modeToggle: some View {
-        Button {
-            viewModel.toggleMode()
-        } label: {
-            Label(viewModel.mode.label, systemImage: "arrow.left.arrow.right")
-                .font(.subheadline.weight(.medium))
-                .padding(.vertical, 8)
-                .padding(.horizontal, 16)
-                .background(.thinMaterial, in: Capsule())
+    private var scopeBar: some View {
+        Picker("", selection: Binding(
+            get: { viewModel.mode },
+            set: { viewModel.toggleMode(to: $0) }
+        )) {
+            Text("Text → Morse").tag(ConversionMode.textToMorse)
+            Text("Morse → Text").tag(ConversionMode.morseToText)
         }
-        .padding(.vertical, 12)
+        .pickerStyle(.segmented)
+        .padding(.horizontal)
+        .padding(.vertical, 8)
+        .background(.bar)
     }
 
     private var inputSection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("Input")
+            HStack {
+                Text("Input")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                Spacer()
+                Button("Clear", systemImage: "xmark.circle") {
+                    viewModel.clear()
+                }
                 .font(.caption)
                 .foregroundStyle(.secondary)
-                .padding(.horizontal)
+                .disabled(viewModel.inputText.isEmpty)
+            }
+            .padding(.horizontal)
 
             TextEditor(text: $viewModel.inputText)
-                .frame(minHeight: 120, maxHeight: 180)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(8)
                 .background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 12))
                 .padding(.horizontal)
@@ -58,27 +73,33 @@ struct ConverterView: View {
                             .allowsHitTesting(false)
                     }
                 }
-
-            HStack {
-                Spacer()
-                Button("Clear", systemImage: "xmark.circle") {
-                    viewModel.clear()
-                }
-                .font(.caption)
-                .foregroundStyle(.secondary)
-                .disabled(viewModel.inputText.isEmpty)
-                .padding(.horizontal)
-            }
         }
-        .padding(.bottom, 8)
+        .padding(.vertical, 8)
+        .frame(maxHeight: .infinity)
     }
 
     private var outputSection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("Output")
+            HStack {
+                Text("Output")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                Spacer()
+                Button("Copy", systemImage: "doc.on.doc") {
+                    UIPasteboard.general.string = viewModel.outputText
+                }
                 .font(.caption)
                 .foregroundStyle(.secondary)
-                .padding(.horizontal)
+                .disabled(viewModel.outputText.isEmpty)
+
+                ShareLink(item: viewModel.outputText) {
+                    Label("Share", systemImage: "square.and.arrow.up")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                .disabled(viewModel.outputText.isEmpty)
+            }
+            .padding(.horizontal)
 
             Group {
                 if viewModel.outputText.isEmpty {
@@ -87,7 +108,6 @@ struct ConverterView: View {
                         systemImage: "waveform",
                         description: Text("Start typing above to see the conversion.")
                     )
-                    .frame(maxHeight: .infinity)
                 } else {
                     ScrollView {
                         Text(viewModel.outputText)
@@ -98,27 +118,12 @@ struct ConverterView: View {
                     }
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 12))
             .padding(.horizontal)
-
-            if !viewModel.outputText.isEmpty {
-                HStack(spacing: 16) {
-                    Spacer()
-                    Button("Copy", systemImage: "doc.on.doc") {
-                        UIPasteboard.general.string = viewModel.outputText
-                    }
-                    .font(.caption)
-
-                    ShareLink(item: viewModel.outputText) {
-                        Label("Share", systemImage: "square.and.arrow.up")
-                            .font(.caption)
-                    }
-                }
-                .padding(.horizontal)
-            }
         }
         .padding(.vertical, 8)
-        .frame(maxHeight: .infinity, alignment: .top)
+        .frame(maxHeight: .infinity)
     }
 }
 
