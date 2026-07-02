@@ -83,3 +83,67 @@ struct MorseEncoderTests {
         #expect(encoder.encode("😀") == "?")
     }
 }
+
+@Suite("MorseDecoder")
+struct MorseDecoderTests {
+
+    let decoder = MorseDecoder()
+
+    // MARK: - Edge cases
+
+    @Test func emptyString() {
+        #expect(decoder.decode("") == "")
+    }
+
+    @Test func extraWhitespaceTrimmed() {
+        #expect(decoder.decode("  ... --- ...  ") == "SOS")
+    }
+
+    // MARK: - Letters
+
+    @Test func singleSymbol() {
+        #expect(decoder.decode(".") == "E")
+        #expect(decoder.decode("-") == "T")
+    }
+
+    @Test func multipleSymbols() {
+        #expect(decoder.decode(".... ..") == "HI")
+        #expect(decoder.decode("... --- ...") == "SOS")
+    }
+
+    // MARK: - Digits
+
+    @Test func digits() {
+        #expect(decoder.decode("-----") == "0")
+        #expect(decoder.decode("----.") == "9")
+        #expect(decoder.decode("----. ----.") == "99")
+    }
+
+    // MARK: - Word separation
+
+    @Test func wordSeparator() {
+        #expect(decoder.decode(".... .. / .... ..") == "HI HI")
+    }
+
+    // MARK: - Unknown / malformed
+
+    @Test func unknownSequenceReturnsQuestionMark() {
+        #expect(decoder.decode("..--") == "?")
+    }
+
+    @Test func unknownMixedWithKnown() {
+        #expect(decoder.decode(".- ..-- -...") == "A?B")
+    }
+
+    @Test func malformedInputNoCrash() {
+        #expect(decoder.decode("invalid!!!") == "?")
+    }
+
+    // MARK: - Roundtrip
+
+    @Test func roundtrip() {
+        let encoder = MorseEncoder()
+        let original = "HELLO WORLD"
+        #expect(decoder.decode(encoder.encode(original)) == original)
+    }
+}

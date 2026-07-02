@@ -42,4 +42,9 @@ enum MorseCodeTable {
 
         return t
     }()
+
+    /// Inverted map: Morse pattern → character. Used by `MorseDecoder`.
+    static let reversed: [String: String] = Dictionary(
+        symbols.map { ($1, $0) }, uniquingKeysWith: { first, _ in first }
+    )
 }
