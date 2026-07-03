@@ -65,6 +65,25 @@ Step-by-step checklist for first submission.
   Toggle the scope bar to switch to Morse → Text mode.
   No login required. No network requests made.
   ```
+- [ ] Additional information (Notes for App Review field):
+  ```
+  Morse Code Toolkit Pro is a offline Morse code converter — no account, 
+  no login, and no network requests are made at any point.
+
+  To test the app:
+  1. Open the app — the Converter screen is the default tab.
+  2. Type any text (e.g. "HELLO") in the input field — Morse output 
+     appears live below.
+  3. Tap the scope bar at the top to switch to "Morse → Text" mode.
+  4. Type a Morse sequence (e.g. "... --- ...") — decoded text appears live.
+  5. Tap "Copy" in the Output row to copy the result to clipboard.
+  6. Tap "Share" to open the system share sheet.
+  7. Tap "Clear" to reset both fields.
+
+  All conversion history is stored locally on device using SwiftData.
+  No special device configuration, hardware, or test account is required.
+  The app works fully in the Simulator.
+  ```
 - [ ] Submit for Review
 
 ---
