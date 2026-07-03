@@ -124,7 +124,7 @@ First release.
 
 ## Bundle ID
 ```
-com.divijsahu.morsestudio
+com.clubsyncindia.morse
 ```
 
 ---

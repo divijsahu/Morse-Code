@@ -8,8 +8,8 @@ Step-by-step checklist for first submission.
 
 - [ ] Go to [developer.apple.com](https://developer.apple.com) → Certificates, Identifiers & Profiles → Identifiers
 - [ ] Click **+** → App IDs → App
-- [ ] Description: `MorseStudio`
-- [ ] Bundle ID (Explicit): `com.divijsahu.morsestudio`
+- [ ] Description: `Morse Code Toolkit Pro`
+- [ ] Bundle ID (Explicit): `com.clubsyncindia.morse`
 - [ ] Capabilities: none required for v1.0
 - [ ] Register
 
@@ -21,8 +21,8 @@ Step-by-step checklist for first submission.
 - [ ] Platform: iOS
 - [ ] Name: `MorseStudio`
 - [ ] Primary Language: English (U.S.)
-- [ ] Bundle ID: `com.divijsahu.morsestudio`
-- [ ] SKU: `morsestudio-ios` (internal only, never shown)
+- [ ] Bundle ID: `com.clubsyncindia.morse`
+- [ ] SKU: `morse-toolkit-pro-ios` (internal only, never shown)
 - [ ] User Access: Full Access
 
 ---
@@ -88,7 +88,14 @@ Step-by-step checklist for first submission.
 
 ---
 
-## 7. After Approval
+## 7. App Encryption Documentation
+
+- [x] **Encryption algorithms used:** Standard encryption algorithms (uses Apple OS encryption only)
+- [x] **Available for distribution in France:** No
+
+---
+
+## 8. After Approval
 
 - [ ] Release manually or automatically
 - [ ] Tag the release in Git: `git tag v1.0 && git push origin v1.0`
