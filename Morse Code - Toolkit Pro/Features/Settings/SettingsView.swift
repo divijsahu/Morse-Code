@@ -6,7 +6,7 @@ struct SettingsView: View {
             ContentUnavailableView(
                 "Settings",
                 systemImage: "gearshape",
-                description: Text("WPM, audio frequency, theme, and more coming in Sprint 4.")
+                description: Text("WPM, audio frequency, theme, and more coming soon.")
             )
             .navigationTitle("Settings")
         }
