@@ -6,7 +6,7 @@ struct TransmitView: View {
             ContentUnavailableView(
                 "Transmit",
                 systemImage: "antenna.radiowaves.left.and.right",
-                description: Text("Flashlight, haptics, and audio transmission coming in Sprint 3.")
+                description: Text("Flashlight, haptics, and audio transmission coming soon.")
             )
             .navigationTitle("Transmit")
         }

@@ -128,9 +128,9 @@ Every version is a real App Store release.
 
 | Version | Sprint | Status |
 |---------|--------|--------|
-| — | Sprint 0 — Project shell | 🔨 In progress |
+| — | Sprint 0 — Project shell | ✅ Done |
 | — | Sprint 1 — Morse engine + tests | ⬜ Planned |
-| `v1.0` | Sprint 2 — Converter | ⬜ Planned |
+| `v1.0` | Sprint 2 — Converter | 🔍 In Review |
 | `v1.1` | Sprint 3 — Transmission | ⬜ Planned |
 | `v1.2` | Sprint 3.5 — Telegraph key visualizer | ⬜ Planned |
 | `v1.3` | Sprint 4 — Favorites + settings | ⬜ Planned |
