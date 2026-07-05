@@ -4,6 +4,7 @@ import SwiftData
 struct ConverterView: View {
 
     @State private var viewModel = ConverterViewModel()
+    @State private var showHistory = false
     @Environment(\.modelContext) private var modelContext
 
     var body: some View {
@@ -18,11 +19,28 @@ struct ConverterView: View {
             }
             .navigationTitle("Converter")
             .navigationBarTitleDisplayMode(.large)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("History", systemImage: "clock") {
+                        showHistory = true
+                    }
+                }
+            }
+            .sheet(isPresented: $showHistory) {
+                NavigationStack {
+                    HistoryView()
+                        .toolbar {
+                            ToolbarItem(placement: .topBarLeading) {
+                                Button("Done") { showHistory = false }
+                            }
+                        }
+                }
+            }
             .safeAreaInset(edge: .top, spacing: 0) {
                 scopeBar
             }
             .onChange(of: viewModel.outputText) {
-                viewModel.saveToHistoryIfNeeded(context: modelContext)
+                viewModel.scheduleHistorySave(context: modelContext)
             }
         }
     }

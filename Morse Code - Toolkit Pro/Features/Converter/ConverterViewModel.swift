@@ -22,6 +22,7 @@ final class ConverterViewModel {
     private let encoder = MorseEncoder()
     private let decoder = MorseDecoder()
     private var lastSaved: String = ""
+    private var debounceTask: Task<Void, Never>?
 
     var outputText: String {
         guard !inputText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return "" }
@@ -32,23 +33,33 @@ final class ConverterViewModel {
 
     func toggleMode(to newMode: ConversionMode) {
         guard newMode != mode else { return }
+        debounceTask?.cancel()
         inputText = ""
         lastSaved = ""
         mode = newMode
     }
 
     func clear() {
+        debounceTask?.cancel()
         inputText = ""
         lastSaved = ""
     }
 
-    func saveToHistoryIfNeeded(context: ModelContext) {
-        let output = outputText
-        guard !output.isEmpty, output != lastSaved else { return }
-        let entry = mode == .textToMorse
-            ? MorseEntry(inputText: inputText, morseText: output)
-            : MorseEntry(inputText: output, morseText: inputText)
-        context.insert(entry)
-        lastSaved = output
+    func scheduleHistorySave(context: ModelContext) {
+        debounceTask?.cancel()
+        let delay: Duration = mode == .textToMorse ? .seconds(5) : .seconds(10)
+        debounceTask = Task { [weak self] in
+            try? await Task.sleep(for: delay)
+            guard !Task.isCancelled, let self else { return }
+            let output = self.outputText
+            guard !output.isEmpty, output != self.lastSaved else { return }
+            let entry = self.mode == .textToMorse
+                ? MorseEntry(inputText: self.inputText, morseText: output, isTextToMorse: true)
+                : MorseEntry(inputText: output, morseText: self.inputText, isTextToMorse: false)
+            await MainActor.run {
+                context.insert(entry)
+                self.lastSaved = output
+            }
+        }
     }
 }
