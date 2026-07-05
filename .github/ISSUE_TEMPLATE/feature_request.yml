@@ -1,0 +1,46 @@
+name: Feature Request
+description: Suggest something new
+labels: ["feat"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check the [open issues](https://github.com/divijsahu/Morse-Code/issues) and [roadmap](https://github.com/divijsahu/Morse-Code/blob/main/Morse%20Code%20-%20Toolkit%20Pro/Docs/ISSUES.md) first — it may already be planned.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      placeholder: I find it frustrating when...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      placeholder: It would be great if...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
+      placeholder: I also thought about...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: sprint
+    attributes:
+      label: Which sprint does this fit?
+      options:
+        - Sprint 3 — Transmission
+        - Sprint 3.5 — Telegraph Key Visualizer
+        - Sprint 4 — Favorites + Settings
+        - Sprint 5 — Practice Mode
+        - Sprint 6 — Polish + Accessibility
+        - Future / Not sure
+    validations:
+      required: false
