@@ -4,21 +4,25 @@
 
 # MorseStudio
 
-**A full-featured Morse code toolkit for iPhone.**  
+**A full-featured, open source Morse code toolkit for iPhone.**  
 Convert, transmit, visualize, and learn — built entirely in SwiftUI.
 
 <br/>
 
-![iOS](https://img.shields.io/badge/iOS-26%2B-black?style=flat-square&logo=apple)
-![Swift](https://img.shields.io/badge/Swift-6-orange?style=flat-square&logo=swift)
-![SwiftUI](https://img.shields.io/badge/SwiftUI-6-blue?style=flat-square)
-![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
-![Built in Public](https://img.shields.io/badge/built-in%20public-blueviolet?style=flat-square)
+[![iOS](https://img.shields.io/badge/iOS-18%2B-black?style=flat-square&logo=apple)](https://developer.apple.com/ios/)
+[![Swift](https://img.shields.io/badge/Swift-6-orange?style=flat-square&logo=swift)](https://swift.org)
+[![SwiftUI](https://img.shields.io/badge/SwiftUI-6-blue?style=flat-square)](https://developer.apple.com/xcode/swiftui/)
+[![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
+[![Good First Issues](https://img.shields.io/github/issues/divijsahu/Morse-Code/good%20first%20issue?style=flat-square&label=good%20first%20issues&color=7057ff)](https://github.com/divijsahu/Morse-Code/issues?q=is%3Aopen+label%3A%22good+first+issue%22)
+[![Open Issues](https://img.shields.io/github/issues/divijsahu/Morse-Code?style=flat-square)](https://github.com/divijsahu/Morse-Code/issues)
+[![Built in Public](https://img.shields.io/badge/built-in%20public-blueviolet?style=flat-square)](https://github.com/divijsahu/Morse-Code)
 
 <br/>
 
 > Built in public as a portfolio project.  
-> Every sprint ships to the App Store. Every commit is visible.
+> Every sprint ships to the App Store. Every commit is visible.  
+> **Contributions welcome — see [open issues](https://github.com/divijsahu/Morse-Code/issues).**
 
 </div>
 
@@ -110,11 +114,11 @@ MorseStudio/
 
 ## Getting Started
 
-**Requirements:** Xcode 26+ · iOS 26+ · Swift 6
+**Requirements:** Xcode 16+ · iOS 18+ · Swift 6
 
 ```sh
-git clone https://github.com/<your-username>/morsestudio.git
-cd morsestudio
+git clone https://github.com/divijsahu/Morse-Code.git
+cd Morse-Code
 open "Morse Code - Toolkit Pro.xcodeproj"
 ```
 
@@ -129,25 +133,34 @@ Every version is a real App Store release.
 | Version | Sprint | Status |
 |---------|--------|--------|
 | — | Sprint 0 — Project shell | ✅ Done |
-| — | Sprint 1 — Morse engine + tests | ⬜ Planned |
-| `v1.0` | Sprint 2 — Converter | 🔍 In Review |
-| `v1.1` | Sprint 3 — Transmission | ⬜ Planned |
-| `v1.2` | Sprint 3.5 — Telegraph key visualizer | ⬜ Planned |
-| `v1.3` | Sprint 4 — Favorites + settings | ⬜ Planned |
-| `v1.4` | Sprint 5 — Practice mode | ⬜ Planned |
-| `v1.5` | Sprint 6–7 — Polish + App Store | ⬜ Planned |
-
+| — | Sprint 1 — Morse engine + tests | ✅ Done |
+| `v1.0` | Sprint 2 — Converter | ✅ Done |
+| `v1.1` | Sprint 3 — Transmission | 🔨 Open for contribution |
+| `v1.2` | Sprint 3.5 — Telegraph key visualizer | 🔨 Open for contribution |
+| `v1.3` | Sprint 4 — Favorites + settings | 🔨 Open for contribution |
+| `v1.4` | Sprint 5 — Practice mode | 🔨 Open for contribution |
+| `v1.5` | Sprint 6–7 — Polish + App Store | 🔨 Open for contribution |
 
 ---
 
 ## Contributing
 
-This is an open source, built-in-public project. Contributions are welcome.
+MorseStudio is actively looking for contributors. Whether you're an experienced iOS developer or looking for your first open source PR — there's an issue for you.
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) for the full workflow — how issues are named, how branches are created, and how PRs are merged.
+**→ [Browse open issues](https://github.com/divijsahu/Morse-Code/issues)**  
+**→ [Good first issues](https://github.com/divijsahu/Morse-Code/issues?q=is%3Aopen+label%3A%22good+first+issue%22)**  
+**→ [Full roadmap](Morse%20Code%20-%20Toolkit%20Pro/Docs/ISSUES.md)**
+
+The workflow is simple:
+1. Comment on an issue to get assigned
+2. Branch off `main` — `feature/<issue-number>-short-description`
+3. Open a PR with `Closes #N`
+4. One review, then merge
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide.
 
 ---
 
 ## License
 
-MIT © Divij Sahu
+MIT © [Divij Sahu](https://github.com/divijsahu)

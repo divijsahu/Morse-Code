@@ -3,8 +3,11 @@
 Thanks for your interest in contributing to MorseStudio.
 This is an open source project built in public — every issue, branch, and PR is part of the story.
 
+New to open source? This is a great repo to start with. The codebase is pure SwiftUI + SwiftData, no third-party dependencies, and every issue is scoped to a single, well-defined task.
+
 ## Table of Contents
 
+- [Your First Contribution](#your-first-contribution)
 - [Getting Started](#getting-started)
 - [Reporting Bugs](#reporting-bugs)
 - [Suggesting Features](#suggesting-features)
@@ -13,6 +16,20 @@ This is an open source project built in public — every issue, branch, and PR i
 - [Commit Messages](#commit-messages)
 - [Pull Requests](#pull-requests)
 - [Code Style](#code-style)
+
+---
+
+## Your First Contribution
+
+Not sure where to start? Look for issues tagged [`good first issue`](https://github.com/divijsahu/Morse-Code/issues?q=is%3Aopen+label%3A%22good+first+issue%22) — these are scoped small, well-documented, and a good way to get familiar with the codebase.
+
+The flow:
+1. Find an issue tagged `good first issue`
+2. Leave a comment: "I'd like to work on this"
+3. Wait to be assigned (usually within 24 hours)
+4. Follow the workflow below
+
+If you get stuck at any point, ask in the issue thread — no question is too small.
 
 ---
 
