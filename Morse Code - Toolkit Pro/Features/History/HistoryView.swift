@@ -31,13 +31,29 @@ struct HistoryView: View {
                                         .padding(.vertical, 2)
                                         .background(.secondary.opacity(0.15), in: Capsule())
                                     
-                                    Button {
-                                        UIPasteboard.general.string = entry.isTextToMorse ? entry.morseText : entry.inputText
-                                    }label: {
-                                        Image(systemName: "doc.on.doc")
+                                    HStack{
+                                        
+                                        Button {
+                                            UIPasteboard.general.string = entry.isTextToMorse ? entry.morseText : entry.inputText
+                                        } label: {
+                                            Image(systemName: "doc.on.doc")
+                                                .font(.system(size: 15, weight: .medium))
+                                                .foregroundStyle(.secondary)
+                                                .frame(width: 44, height: 44)
+                                                .contentShape(Rectangle())
+                                        }
+                                        .buttonStyle(.plain)
+                                        
+                                        
+                                        ShareLink(item: entry.isTextToMorse ? entry.morseText : entry.inputText) {
+                                            Image(systemName: "square.and.arrow.up")
+                                                .font(.system(size: 15, weight: .medium))
+                                                .foregroundStyle(.secondary)
+                                                .frame(width: 44, height: 44)
+                                                .contentShape(Rectangle())
+                                        }
+                                        .buttonStyle(.plain)
                                     }
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
                                 }
                             }
                             Text(entry.isTextToMorse ? entry.morseText : entry.inputText)
