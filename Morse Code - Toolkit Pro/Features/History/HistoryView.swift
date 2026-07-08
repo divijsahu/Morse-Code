@@ -23,12 +23,22 @@ struct HistoryView: View {
                                     .font(.subheadline.weight(.medium))
                                     .lineLimit(1)
                                 Spacer()
-                                Text(entry.isTextToMorse ? "Text → Morse" : "Morse → Text")
-                                    .font(.caption2)
+                                VStack{
+                                    Text(entry.isTextToMorse ? "Text → Morse" : "Morse → Text")
+                                        .font(.caption2)
+                                        .foregroundStyle(.secondary)
+                                        .padding(.horizontal, 6)
+                                        .padding(.vertical, 2)
+                                        .background(.secondary.opacity(0.15), in: Capsule())
+                                    
+                                    Button {
+                                        UIPasteboard.general.string = entry.isTextToMorse ? entry.morseText : entry.inputText
+                                    }label: {
+                                        Image(systemName: "doc.on.doc")
+                                    }
+                                    .font(.caption)
                                     .foregroundStyle(.secondary)
-                                    .padding(.horizontal, 6)
-                                    .padding(.vertical, 2)
-                                    .background(.secondary.opacity(0.15), in: Capsule())
+                                }
                             }
                             Text(entry.isTextToMorse ? entry.morseText : entry.inputText)
                                 .font(.caption.monospaced())
