@@ -41,7 +41,7 @@ struct HistoryView: View {
                                             } label: {
                                                 Image(systemName: "doc.on.doc")
                                                     .font(.system(size: 15, weight: .medium))
-                                                    .foregroundStyle(.secondary)
+                                                    .foregroundStyle(.blue)
                                                     .frame(width: 44, height: 44)
                                                     .contentShape(Rectangle())
                                             }
@@ -51,7 +51,7 @@ struct HistoryView: View {
                                             ShareLink(item: entry.isTextToMorse ? entry.morseText : entry.inputText) {
                                                 Image(systemName: "square.and.arrow.up")
                                                     .font(.system(size: 15, weight: .medium))
-                                                    .foregroundStyle(.secondary)
+                                                    .foregroundStyle(.blue)
                                                     .frame(width: 44, height: 44)
                                                     .contentShape(Rectangle())
                                             }
