@@ -5,6 +5,8 @@ struct HistoryView: View {
 
     @Query(sort: \MorseEntry.createdAt, order: .reverse) private var entries: [MorseEntry]
     @Environment(\.modelContext) private var modelContext
+//    @State var isExpanded: Bool = false
+    @State var expandedListID: UUID?
 
     var body: some View {
         Group {
@@ -21,22 +23,58 @@ struct HistoryView: View {
                             HStack(spacing: 4) {
                                 Text(entry.isTextToMorse ? entry.inputText : entry.morseText)
                                     .font(.subheadline.weight(.medium))
-                                    .lineLimit(1)
+                                    .lineLimit(expandedListID == entry.id ? nil : 1)
                                 Spacer()
-                                Text(entry.isTextToMorse ? "Text → Morse" : "Morse → Text")
-                                    .font(.caption2)
-                                    .foregroundStyle(.secondary)
-                                    .padding(.horizontal, 6)
-                                    .padding(.vertical, 2)
-                                    .background(.secondary.opacity(0.15), in: Capsule())
+                                VStack{
+                                    Text(entry.isTextToMorse ? "Text → Morse" : "Morse → Text")
+                                        .font(.caption2)
+                                        .foregroundStyle(.secondary)
+                                        .padding(.horizontal, 6)
+                                        .padding(.vertical, 2)
+                                        .background(.secondary.opacity(0.15), in: Capsule())
+                                    
+                                    if expandedListID == entry.id {
+                                        HStack{
+                                            
+                                            Button {
+                                                UIPasteboard.general.string = entry.isTextToMorse ? entry.morseText : entry.inputText
+                                            } label: {
+                                                Image(systemName: "doc.on.doc")
+                                                    .font(.system(size: 15, weight: .medium))
+                                                    .foregroundStyle(.blue)
+                                                    .frame(width: 44, height: 44)
+                                                    .contentShape(Rectangle())
+                                            }
+                                            .buttonStyle(.plain)
+                                            
+                                            
+                                            ShareLink(item: entry.isTextToMorse ? entry.morseText : entry.inputText) {
+                                                Image(systemName: "square.and.arrow.up")
+                                                    .font(.system(size: 15, weight: .medium))
+                                                    .foregroundStyle(.blue)
+                                                    .frame(width: 44, height: 44)
+                                                    .contentShape(Rectangle())
+                                            }
+                                            .buttonStyle(.plain)
+                                        }
+                                    }
+                                    
+                                }
                             }
                             Text(entry.isTextToMorse ? entry.morseText : entry.inputText)
                                 .font(.caption.monospaced())
                                 .foregroundStyle(.secondary)
-                                .lineLimit(1)
+                                .lineLimit(expandedListID == entry.id ? nil : 1)
                             Text(entry.createdAt.formatted(date: .abbreviated, time: .shortened))
                                 .font(.caption2)
                                 .foregroundStyle(.tertiary)
+                        }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            withAnimation {
+                                expandedListID == entry.id ? (expandedListID = nil) : (expandedListID = entry.id)
+//                                isExpanded.toggle()
+                            }
                         }
                         .padding(.vertical, 2)
                     }
